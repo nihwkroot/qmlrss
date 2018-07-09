@@ -2,19 +2,28 @@ import QtQuick 2.2
 
 Item {
     id: root
-    width: 660
-    height: 706
+    width: 1152
+    height: 864
+    focus: true
+
+    Rectangle
+    {
+        z: -200
+        id: background
+        anchors.fill: parent
+        color: "#101f0f"
+    }
 
     Rectangle {
-        anchors.verticalCenter: parent.bottom
-        anchors.horizontalCenter: parent.right
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
 
         Column {
 
-            anchors.top: parent.verticalCenter
-            anchors.topMargin: 4
-            anchors.left: parent.horizontalCenter
-            anchors.leftMargin: 10
+            anchors.bottom: parent.verticalCenter
+            anchors.bottomMargin: 4
+            anchors.right: parent.horizontalCenter
+            anchors.rightMargin: 10
 
             StyledText {
                 id: time
@@ -36,6 +45,8 @@ Item {
     }
 
     Image {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
         z: -100
         source: "./nihwk.png"
     }
