@@ -6,5 +6,6 @@
         <file>NewsSlider.qml</file>
         <file>StyledText.qml</file>
         <file>MergedXmlListModel.qml</file>
+        <file>nihwk.png</file>
     </qresource>
 </RCC>

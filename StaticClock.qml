@@ -1,32 +1,43 @@
 import QtQuick 2.2
- 
-Rectangle {
-    color: "#6F000000"
-    width: 260
-    height: 148
-    radius: 15
-    anchors.verticalCenter: parent.top
-    anchors.horizontalCenter: parent.left
 
-    Column {
+Item {
+    id: root
+    width: 660
+    height: 706
 
-        anchors.top: parent.verticalCenter
-        anchors.topMargin: 4
-        anchors.left: parent.horizontalCenter
-        anchors.leftMargin: 10
+    Rectangle {
+        anchors.verticalCenter: parent.bottom
+        anchors.horizontalCenter: parent.right
 
-        StyledText {
-            id: time
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.bold: true; font.pixelSize: 34
+        Column {
+
+            anchors.top: parent.verticalCenter
+            anchors.topMargin: 4
+            anchors.left: parent.horizontalCenter
+            anchors.leftMargin: 10
+
+            StyledText {
+                id: time
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true; font.pixelSize: 68
+            }
+
+            StyledText {
+                id: date
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true; font.pixelSize: 28
+            }
+
         }
-
-        StyledText {
-            id: date
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.bold: true; font.pixelSize: 14
+        Timer {
+            interval: 100; running: true; repeat: true;
+            onTriggered: timeChanged()
         }
+    }
 
+    Image {
+        z: -100
+        source: "./nihwk.png"
     }
 
     function timeChanged() {
@@ -35,8 +46,5 @@ Rectangle {
         date.text = dt.toLocaleDateString(Qt.locale("en_UK"), "ddd d MMM");
     }
 
-    Timer {
-        interval: 100; running: true; repeat: true;
-        onTriggered: timeChanged()
-    }
+
 }
