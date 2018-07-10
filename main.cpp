@@ -49,12 +49,8 @@ int main(int argc, char **argv)
 {
     QGuiApplication app(argc, argv);
     QQuickView view;
-    Netlink nl;
 
-    // Connect the netlink device so that the QML will wait for
-    // a network connection before running.
-    view.engine()->rootContext()->setContextProperty("nl", &nl);
-    view.engine()->setNetworkAccessManagerFactory(new MyNetworkAccessManagerFactory);
+    QObject::connect((QObject *)view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:///main.qml"));
     view.show();

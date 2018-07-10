@@ -53,7 +53,7 @@ Item {
 
     function timeChanged() {
         var dt = new Date;
-        time.text = dt.toLocaleTimeString(Qt.locale("en_UK"), "hh:mm");
+        time.text = dt.toLocaleTimeString(Qt.locale("en_UK"), "hh:mm:ss");
         date.text = dt.toLocaleDateString(Qt.locale("en_UK"), "ddd d MMM");
     }
 

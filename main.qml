@@ -4,8 +4,8 @@ import QtQuick 2.2
 Rectangle {
     id: window
     color: "black"
-    width: 800
-    height: 480
+    width: 1152
+    height: 864
 
     NewsSlider{ id: ns }
 
@@ -30,8 +30,6 @@ Rectangle {
             Qt.quit();
         }
     }
-
-    Component.onCompleted: nl.start();
 }
 
 

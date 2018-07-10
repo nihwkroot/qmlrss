@@ -54,14 +54,4 @@ PathView {
     onMovementEnded: {
         manualtimer.restart()
     } 
-
-    Connections {
-        target: nl
-        onFinished: {
-            console.log("going to load model now");
-            newsslider.model = Qt.createComponent("MergedXmlListModel.qml").createObject(newsslider);
-            modeltimer.start();
-        }
-    }
-
 }
